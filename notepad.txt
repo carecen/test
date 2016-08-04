@@ -1,0 +1,15 @@
+github默认采用https来clone代码，如果改成ssh形式是不需要输入密码的。 
+在bash中输入
+
+ssh-keygen -t rsa -C "email@email.com"
+要求输入位置和 passphrase的时候，按enter即可。默认生成的文件在%HOME%/.ssh中，包括id_rsa 和 id_rsa.pub。
+
+在github的profile中，新增ssh key，title任意可空，把id_rsa.pub中的东西复制到内容中就好。 
+然后在bash中执行：
+
+git remote rm origin
+git remote add origin git@github.com:account/repository.git
+git push --set-upstream origin master
+
+
+然后就OK了。
